@@ -1,6 +1,8 @@
 package com.hcx.springhello.dao;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,9 +15,11 @@ import java.util.Map;
  * 还需要添加@Component组件注解使功能生效
 **/
 @Component
+@PropertySource("classpath:person.properties")
 @ConfigurationProperties(prefix = "person")
 public class Person {
 
+//    @Value("${person.name}")
     private String name;
     private Integer age;
     private List list;

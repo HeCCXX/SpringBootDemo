@@ -139,4 +139,31 @@ person:
     name: xiaohua
     age: 2
 ```
+#### @Value获取值和@ConfigurationProperties获取值比较
+
+|                      | @ConfigurationProperties | @Value     |
+| -------------------- | ------------------------ | ---------- |
+| 功能                 | 批量注入配置文件中的属性 | 一个个指定 |
+| 松散绑定（松散语法） | 支持                     | 不支持     |
+| SpEL                 | 不支持                   | 支持       |
+| JSR303数据校验       | 支持                     | 不支持     |
+| 复杂类型封装         | 支持                     | 不支持     |
+
+配置文件yml还是properties他们都能获取到值；
+
+如果说，我们只是在某个业务逻辑中需要获取一下配置文件中的某项值，使用@Value；
+
+如果说，我们专门编写了一个javaBean来和配置文件进行映射，我们就直接使用@ConfigurationProperties；
+
+使用@PropertiesResource注解来指定除application.properties之外的配置配件
+
+@**ImportResource**：导入Spring的配置文件，让配置文件里面的内容生效；(不推荐使用)
+
+SpringBoot推荐给容器中添加组件的方式，推荐使用全注解的方式
+
+1、配置类@Configuration   Spring的配置文件
+
+2、使用@Bean给容器中添加组件
+
+
 
